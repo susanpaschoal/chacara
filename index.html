@@ -182,8 +182,8 @@
                 <input type="email" name="email" placeholder="E-mail" required>
                 <textarea name="mensagem" cols="30" rows="10" placeholder="Mensagem" required></textarea>
                 <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_next" value="obrigada.html"> <!--hospedar no netlify antes de hospedar o em si-->
-                <button type="submit">Enviar</button>
+
+                <button type="submit" onclick="aviso()">Enviar</button>
             </form>
             
         </div>
@@ -202,7 +202,11 @@
 
   </div>
 
-
+<script>
+  function aviso() {
+    alert("Mensagem enviada com sucesso! Em breve entraremos em contato.");
+  }
+</script>
 </body>
 
 </html>

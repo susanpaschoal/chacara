@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Galeria de Imagens</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f0f0f0;
+  text-align: center;
+}
+
+.titulo {
+    font-size: 3rem;
+  margin-bottom: 40px;
+
+}
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  padding: 20px 20px 20px 20px;
+
+}
+
+.galeria img {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+
+.galeria img:hover {
+  transform: scale(1.05);
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding: 40px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox .conteudo-lightbox {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 10px;
+}
+
+.lightbox .fechar {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+
+  </style>
+</head>
+<body>
+    <header>
+        <h1>Chacara Encanto</h1>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html">Sobre</a></li>
+            <li><a href="index.html">Galeria</a></li>
+            <li><a href="#contact">Contato</a></li>
+          </ul>
+      </header>
+  <h1 class="titulo">Galeria</h1>
+  <div class="galeria">
+    <img src="img/img1.jpg" alt="Imagem 1">
+    <img src="img/img2.jpg" alt="Imagem 2">
+    <img src="img/img3.jpg" alt="Imagem 3">
+    <img src="img/img4.jpg" alt="Imagem 4">
+    <img src="img/img5.jpg" alt="Imagem 5">
+    <img src="img/img6.jpg" alt="Imagem 6">
+    <img src="img/img7.jpg" alt="Imagem 7">
+    <img src="img/img8.jpg" alt="Imagem 8">
+    <img src="img/img9.jpg" alt="Imagem 9">
+    <img src="img/img10.jpg" alt="Imagem 10">
+    <img src="img/img11.jpg" alt="Imagem 11">
+    <img src="img/img12.jpg" alt="Imagem 12">
+    <!-- Adicione mais imagens conforme necessário -->
+  </div>
+
+  <div id="lightbox" class="lightbox">
+    <span class="fechar">&times;</span>
+    <img class="conteudo-lightbox" id="imgLightbox">
+  </div>
+
+  <script >
+  // Código do lightbox
+  const imagens = document.querySelectorAll(".galeria img");
+  const lightbox = document.getElementById("lightbox");
+  const imgLightbox = document.getElementById("imgLightbox");
+  const fechar = document.querySelector(".fechar");
+  
+  imagens.forEach(img => {
+    img.addEventListener("click", () => {
+      lightbox.style.display = "flex";
+      imgLightbox.src = img.src;
+    });
+  });
+  
+  fechar.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+  
+  lightbox.addEventListener("click", e => {
+    if (e.target === lightbox) {
+      lightbox.style.display = "none";
+    }
+  });
+  
+    
+    </script>
+</body>
+</html>
